@@ -1,65 +1,116 @@
-import Image from "next/image";
+import Link from "next/link"
+import { Card } from "@/components/ui/Card"
+import { Button } from "@/components/ui/Button"
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="min-h-screen flex flex-col items-center px-6">
+
+      {/* ===== HERO SECTION ===== */}
+      <section className="text-center mt-24 max-w-3xl">
+        <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+          BrainBolt 🧠⚡
+        </h1>
+
+        <p className="mt-6 text-white/70 text-lg">
+          An adaptive quiz engine that dynamically adjusts difficulty,
+          tracks streaks, measures performance, and ranks users in real-time.
+        </p>
+
+        <div className="mt-10 flex flex-col md:flex-row gap-4 justify-center">
+          <Link href="/quiz">
+            <Button variant="primary">Start Quiz</Button>
+          </Link>
+
+          <Link href="/leaderboard">
+            <Button variant="secondary">View Leaderboard</Button>
+          </Link>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* ===== FEATURES SECTION ===== */}
+      <section className="mt-28 w-full max-w-5xl">
+        <h2 className="text-2xl font-semibold text-center mb-12">
+          Core Features
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+          <Card>
+            <h3 className="text-lg font-semibold mb-3">
+              Adaptive Difficulty
+            </h3>
+            <p className="text-white/70 text-sm">
+              Difficulty increases with correct streaks and decreases on mistakes,
+              ensuring personalized challenge progression.
+            </p>
+          </Card>
+
+          <Card>
+            <h3 className="text-lg font-semibold mb-3">
+              Real-Time Leaderboard
+            </h3>
+            <p className="text-white/70 text-sm">
+              Users are ranked by total score and streak performance,
+              updated instantly via optimized database queries.
+            </p>
+          </Card>
+
+          <Card>
+            <h3 className="text-lg font-semibold mb-3">
+              Performance Metrics
+            </h3>
+            <p className="text-white/70 text-sm">
+              Track accuracy, streaks, difficulty distribution,
+              and recent attempts in a structured analytics dashboard.
+            </p>
+          </Card>
+
         </div>
-      </main>
+      </section>
+
+      {/* ===== SYSTEM DESIGN INFO ===== */}
+      <section className="mt-28 w-full max-w-4xl">
+        <Card>
+          <h2 className="text-xl font-semibold mb-4">
+            System Architecture
+          </h2>
+
+          <div className="space-y-3 text-sm text-white/70">
+            <p>
+              • Built with Next.js 16 (App Router)
+            </p>
+            <p>
+              • MongoDB Replica Set with optimized indexing
+            </p>
+            <p>
+              • Redis caching for leaderboard efficiency
+            </p>
+            <p>
+              • Fully containerized with Docker
+            </p>
+            <p>
+              • Adaptive scoring algorithm with streak multiplier
+            </p>
+          </div>
+        </Card>
+      </section>
+
+      {/* ===== FINAL CTA ===== */}
+      <section className="mt-28 mb-24 text-center">
+        <h2 className="text-2xl font-semibold">
+          Ready to test your brainpower?
+        </h2>
+
+        <div className="mt-8">
+          <Link href="/quiz">
+            <Button variant="primary">
+              Begin Challenge
+            </Button>
+          </Link>
+        </div>
+      </section>
+
     </div>
-  );
+  )
 }

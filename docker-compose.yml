@@ -1,0 +1,37 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+      - redis
+    environment:
+      MONGODB_URI: mongodb://mongo:27017/brainbolt?replicaSet=rs0
+      REDIS_URL: redis://redis:6379
+
+  mongo:
+    image: mongo:7
+    command: ["--replSet", "rs0", "--bind_ip_all"]
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  mongo-init-replica:
+    image: mongo:7
+    depends_on:
+      - mongo
+    volumes:
+      - ./init-replica.sh:/init-replica.sh
+    entrypoint:
+      - /bin/bash
+      - /init-replica.sh
+
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+
+volumes:
+  mongo-data:
