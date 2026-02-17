@@ -23,7 +23,7 @@ export default function Home() {
           </Link>
 
           <Link href="/leaderboard">
-            <Button variant="secondary">View Leaderboard</Button>
+            <Button variant="primary">View Leaderboard</Button>
           </Link>
         </div>
       </section>
