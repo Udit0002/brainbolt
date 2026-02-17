@@ -4,6 +4,8 @@ A production-ready adaptive quiz platform built with Next.js 16, MongoDB (Replic
 
 This project implements a fully transactional, rate-limited, real-time leaderboard-driven adaptive quiz system as per the assignment requirements.
 
+## Video link - https://bennettu-my.sharepoint.com/:v:/g/personal/e22cseu1177_bennett_edu_in/IQBaCHPX1pB_S4opSy_eccjYAR8NG6n0qVMKFzleMVS0tFc?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=ibRmaU
+
 ## 🚀 Features
 * Dynamically adjusts question difficulty
 * Tracks user performance and streaks
