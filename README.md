@@ -1,37 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧠⚡ BrainBolt — Adaptive Quiz Engine
+The Quiz Application Project is a comprehensive Next.js application designed to provide an engaging and interactive quiz experience for users. The application features a robust set of tools and technologies, including a Prisma ORM for database management, a custom adaptive logic system for adjusting question difficulty, and a user-friendly interface built with React components. The project aims to provide a seamless and enjoyable experience for users, while also offering a scalable and maintainable architecture for developers.
+A production-ready adaptive quiz platform built with Next.js 16, MongoDB (Replica Set), Redis, and Docker.
 
-## Getting Started
+This project implements a fully transactional, rate-limited, real-time leaderboard-driven adaptive quiz system as per the assignment requirements.
 
-First, run the development server:
+## 🚀 Features
+* Dynamically adjusts question difficulty
+* Tracks user performance and streaks
+* Maintains live Redis leaderboards
+* Ensures idempotent answer submissions
+* Uses optimistic concurrency control
+* Supports SSR for performance and SEO
+* Runs entirely inside Docker
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🛠️ Tech Stack
+Frontend
+	•	Next.js 16 (App Router)
+	•	SSR + Client Components
+	•	Tailwind CSS
+	•	Real-time leaderboard updates
+	•	Animated UI with adaptive difficulty indicators
+Backend
+	•	Next.js API Routes
+	•	MongoDB (Replica Set for transactions)
+	•	Redis (Leaderboards + Idempotency)
+	•	Mongoose ODM
+
+Infrastructure
+	•	Docker Compose
+	•	Mongo Replica Set auto-initialization
+	•	Redis standalone
+	•	Production build via next build
+
+## 🐳 Docker Setup
+To get started with the Quiz Application Project, follow these steps:
+1. Clone the repository using `git clone https://github.com/your-repo/quiz-app.git`
+2. Install dependencies using `npm install` or `yarn install`
+3. Set up your MongoDB database and update the `prisma.config.ts` file with your database connection URL
+4. Run the application using `npm run dev` or `yarn dev`
+
+## 💻 Usage
+To use the Quiz Application Project, simply navigate to the application URL in your web browser. The application will guide you through the quiz experience, adjusting question difficulty based on your performance.
+
+## 📂 Project Structure
+```markdown
+.
+├── app
+│   ├── page.tsx
+│   ├── layout.tsx
+│   ├── api
+│   │   ├── v1
+│   │   │   ├── quiz
+│   │   │   │   ├── next
+│   │   │   │   │   ├── route.ts
+│   │   │   │   │   ├── index.ts
+│   │   │   │   ├── index.ts
+│   │   │   ├── index.ts
+│   │   ├── index.ts
+│   ├── components
+│   │   ├── ui
+│   │   │   ├── Card.tsx
+│   │   │   ├── Button.tsx
+│   │   │   ├── Link.tsx
+│   │   ├── index.ts
+│   ├── index.ts
+├── lib
+│   ├── questions.ts
+│   ├── api.ts
+│   ├── adaptive.ts
+│   ├── types.ts
+│   ├── index.ts
+├── models
+│   ├── AnswerLog.ts
+│   ├── User.ts
+│   ├── Question.ts
+│   ├── UserState.ts
+│   ├── index.ts
+├── next.config.ts
+├── prisma.config.ts
+├── middleware.ts
+├── package.json
+├── tsconfig.json
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📸 Screenshots
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🤝 Contributing
+To contribute to the Quiz Application Project, please submit a pull request with your changes and a brief description of your updates.
 
-## Learn More
+## 📝 License
+The Quiz Application Project is licensed under the MIT License.
 
-To learn more about Next.js, take a look at the following resources:
+## 📬 Contact
+For questions or concerns about the Quiz Application Project, please contact us at [your-email@example.com](mailto:your-email@example.com).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# brainbolt
+## 💖 Thanks Message
+This project was made possible by the contributions of many individuals. We would like to extend our gratitude to all who have participated in the development and testing of the Quiz Application Project. This is written by [readme.ai](https://readme-generator-phi.vercel.app/).
