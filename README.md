@@ -43,13 +43,21 @@ cd brainbolt
 ```
 step 2 -
 ```
-docker compose build --no-cache
-docker compose up
+docker compose up --build
 ```
 
 
-## 💻 Usage
-To use the Quiz Application Project, simply navigate to the application URL in your web browser. The application will guide you through the quiz experience, adjusting question difficulty based on your performance.
+## 💻 🧠 Adaptive Logic Overview
+* Correct answer → increases streak & difficulty gradually
+* Incorrect answer → resets streak and reduces difficulty
+* Score scales with difficulty and streak multiplier
+* Difficulty ranges from 1 to 10
+  
+## Difficulty buckets:
+* 1–3 → Basic
+* 4–6 → Data Structures
+* 7–8 → Algorithms
+* 9–10 → Advanced / Edge cases
 
 ## 📂 Project Structure
 ```markdown
@@ -86,23 +94,13 @@ To use the Quiz Application Project, simply navigate to the application URL in y
 │   ├── UserState.ts
 │   ├── index.ts
 ├── next.config.ts
-├── prisma.config.ts
 ├── middleware.ts
 ├── package.json
 ├── tsconfig.json
 ```
 
-## 📸 Screenshots
+## Architecture
+The backend architecture is designed around strong consistency, transactional safety, and real-time system behavior. All answer submissions execute inside MongoDB replica set transactions to ensure atomic updates across UserState, AnswerLog, and leaderboard synchronization. Optimistic concurrency control is implemented using a stateVersion field to prevent race conditions when multiple requests attempt to update the same user state. Idempotency is enforced through Redis using unique answer keys to prevent duplicate score increments from retries or network failures. The adaptive difficulty engine dynamically adjusts question difficulty based on correctness, current streak, and momentum, increasing difficulty on consistent success and decreasing it on repeated failures. Streak decay is applied after inactivity to prevent artificial streak inflation. Leaderboards are powered by Redis sorted sets for O(log n) ranking updates and instant rank retrieval, ensuring live updates after every submission. SSR is implemented for the leaderboard and metrics pages to improve performance and SEO while keeping the interactive quiz behavior client-driven. Edge cases handled include state version mismatches, duplicate submissions, missing user state initialization, empty question pools at a given difficulty, floating-point score rounding, and rate limiting to prevent abuse.
 
 
-## 🤝 Contributing
-To contribute to the Quiz Application Project, please submit a pull request with your changes and a brief description of your updates.
 
-## 📝 License
-The Quiz Application Project is licensed under the MIT License.
-
-## 📬 Contact
-For questions or concerns about the Quiz Application Project, please contact us at [your-email@example.com](mailto:your-email@example.com).
-
-## 💖 Thanks Message
-This project was made possible by the contributions of many individuals. We would like to extend our gratitude to all who have participated in the development and testing of the Quiz Application Project. This is written by [readme.ai](https://readme-generator-phi.vercel.app/).
