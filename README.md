@@ -34,10 +34,17 @@ Infrastructure
 
 ## 🐳 Docker Setup
 To get started with the Quiz Application Project, follow these steps:
-1. Clone the repository using `git clone https://github.com/your-repo/quiz-app.git`
-2. Install dependencies using `npm install` or `yarn install`
-3. Set up your MongoDB database and update the `prisma.config.ts` file with your database connection URL
-4. Run the application using `npm run dev` or `yarn dev`
+step 1 -
+```
+git clone https://github.com/your-username/brainbolt.git
+cd brainbolt
+```
+step 2 -
+```
+docker compose build --no-cache
+docker compose up
+```
+
 
 ## 💻 Usage
 To use the Quiz Application Project, simply navigate to the application URL in your web browser. The application will guide you through the quiz experience, adjusting question difficulty based on your performance.
